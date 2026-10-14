@@ -1,0 +1,12 @@
+# dsh-goal-guard bundle patch: mount into the profile roster.
+#
+# Mount position matters: the plugin must sit at the profile ROOT and stay
+# untagged (no dsh-scope tag), because `dsh-scope` admits untagged listeners
+# globally (`const tag = scopeOf(ctx); if (tag === void 0) return true`).
+# Only that admission lets it observe the root session's `agent/status`.
+#
+# Install: `dsh plugin --profile web add /path/to/dsh-goal-guard`
+#      or: dev_inject_plugin (dsh-super-injector, live, no restart)
+- insert:
+    - id: dsh-goal-guard
+      name: 'dsh-goal-guard'

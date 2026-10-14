@@ -1,0 +1,15 @@
+# 构建期软链依赖（build.sh 会重建，全是 symlink）
+node_modules/
+
+# 编译中间产物
+*.tsbuildinfo
+
+# 打包/发布产物
+*.tgz
+
+# 远端验收就地运行时的产物
+accept-out*/
+accept-*.log
+
+# 注意：lib/ **不入 ignore** —— 它是随包发布的编译产物（files 含 lib），
+# 这样 git 直装 / dsh plugin add 不需要构建步骤。

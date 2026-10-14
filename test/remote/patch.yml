@@ -1,0 +1,9 @@
+# 远端验收 overlay：profile 根 roster 同时挂「被测插件」与「验收夹具」。
+#
+# 被测插件按**包名**挂载（= 真实部署形态：走 profile node_modules 解析 main/exports），
+# 夹具按绝对路径挂载（一次性工件，不进 node_modules）。
+- insert:
+    - id: dsh-goal-guard
+      name: 'dsh-goal-guard'
+    - id: goal-guard-accept
+      name: 'file:///root/test-env/goal-guard-accept.mjs'
